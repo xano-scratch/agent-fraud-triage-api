@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agent Fraud-Triage API: a governed Xano API for agents and analysts</title>
+    <meta
+      name="description"
+      content="One governed Xano API a fraud team's AI agent and its human analysts both call, with the same authority rules and one audit trail. A proof artifact for Xano's Agent Intelligence Layer play."
+    />
+    <style>
+      :root {
+        --bg: #0b0d10;
+        --panel: #14181d;
+        --panel-2: #1b2027;
+        --border: #262c34;
+        --text: #e6e8eb;
+        --muted: #9aa4af;
+        --primary: #f2f4f7;
+        --primary-ink: #14181d;
+        --danger: #e5484d;
+        --ok: #4cc38a;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+      header { padding: 72px 0 32px; }
+      h1 { font-size: 40px; line-height: 1.1; margin: 0 0 12px; letter-spacing: -0.02em; }
+      .tagline { font-size: 19px; color: var(--muted); max-width: 720px; margin: 0 0 20px; }
+      .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+      .badge {
+        display: inline-block; padding: 4px 12px; border-radius: 999px;
+        background: var(--panel-2); border: 1px solid var(--border);
+        font-size: 13px; color: var(--muted);
+      }
+      .badge.play { color: var(--text); border-color: #3a4150; }
+      .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+      .btn {
+        display: inline-block; padding: 11px 20px; border-radius: 10px;
+        font-size: 15px; font-weight: 600; text-decoration: none; transition: opacity .15s, background .15s;
+      }
+      .btn.primary { background: var(--primary); color: var(--primary-ink); }
+      .btn.primary:hover { opacity: 0.9; }
+      .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
+      .btn.ghost:hover { background: var(--panel-2); }
+      .shot { margin: 40px 0; }
+      .shot img {
+        width: 100%; border-radius: 14px; border: 1px solid var(--border);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+      }
+      .shot figcaption { color: var(--muted); font-size: 13px; text-align: center; margin-top: 10px; }
+      section { padding: 28px 0; border-top: 1px solid var(--border); }
+      h2 { font-size: 24px; margin: 0 0 16px; letter-spacing: -0.01em; }
+      p { color: #cfd4da; }
+      ul { color: #cfd4da; padding-left: 20px; }
+      li { margin: 6px 0; }
+      strong { color: var(--text); }
+      table { width: 100%; border-collapse: collapse; font-size: 14px; }
+      th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+      th { color: var(--muted); font-weight: 600; }
+      code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
+      td code { color: var(--text); background: var(--panel-2); padding: 2px 6px; border-radius: 6px; }
+      pre {
+        background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+        padding: 16px 18px; overflow-x: auto; color: var(--text); font-size: 13px; line-height: 1.7;
+      }
+      .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+      .card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
+      .card h3 { margin: 0 0 6px; font-size: 15px; }
+      .card p { margin: 0; font-size: 14px; color: var(--muted); }
+      .note { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; color: var(--muted); font-size: 14px; }
+      footer { padding: 40px 0 64px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
+      @media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; } h1 { font-size: 32px; } }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>Agent Fraud-Triage API</h1>
+        <p class="tagline">
+          One governed Xano API a fraud team's AI agent and its human analysts both call, with the same authority
+          rules on every action and one audit trail of every attempt.
+        </p>
+        <div class="badges">
+          <span class="badge play">Play 4 · Agent Intelligence Layer</span>
+          <span class="badge">Financial services / fraud operations</span>
+          <span class="badge">5 tables · 8 APIs · 2 functions · 1 agent</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn primary" href="https://github.com/xano-scratch/agent-fraud-triage-api">View on GitHub</a>
+          <a class="btn ghost" href="#use">Use this template</a>
+        </div>
+      </header>
+
+      <figure class="shot">
+        <img src="screenshot.png" alt="The Triage Agent is refused when it tries to freeze an account, with the deciding rule shown and the attempt written to the audit trail." />
+        <figcaption>The agent is refused when it tries to freeze an account. The deciding rule is shown, and the attempt is audited.</figcaption>
+      </figure>
+
+      <section>
+        <h2>What it demonstrates</h2>
+        <p>
+          An AI agent and human analysts hit the same permissioned, logged endpoints, so the business rules live in
+          one place a technical evaluator can read and trust. The agent gets no privileged shortcut. When it asks to
+          freeze an account, the API refuses it at the rule layer with the deciding rule, exactly as it refuses a
+          standard analyst. A senior analyst is allowed. Every attempt, allowed or refused, is written to one audit
+          trail.
+        </p>
+        <ul>
+          <li><strong>One shared rule path.</strong> Both <code>alerts/act</code> and <code>triage/run</code> call the same <code>apply_action</code> function, so a human and the agent cannot drift apart.</li>
+          <li><strong>The agent's output is constrained.</strong> The agent can only return clear or escalate. Freezing is off its menu, and it is refused at the rule layer if it tries anyway.</li>
+          <li><strong>API-layer authorization.</strong> Role checks per endpoint, not row-level security. This is how Xano models access.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>API surface</h2>
+        <table>
+          <thead>
+            <tr><th>Verb</th><th>Path</th><th>What it enforces</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>POST</td><td><code>api:aftq-seed/reset</code></td><td>Public. Resets and seeds the demo.</td></tr>
+            <tr><td>POST</td><td><code>api:aftq-auth/token</code></td><td>Password check, then mints a token with the classified actor.</td></tr>
+            <tr><td>GET</td><td><code>api:aftq-alerts/queue</code></td><td>Auth. The alert queue joined with its account.</td></tr>
+            <tr><td>GET</td><td><code>api:aftq-alerts/get/{alert_id}</code></td><td>Auth. One alert with its account and findings.</td></tr>
+            <tr><td>POST</td><td><code>api:aftq-alerts/act</code></td><td>Auth. Clear, escalate, or freeze. Freeze needs senior authority.</td></tr>
+            <tr><td>POST</td><td><code>api:aftq-triage/run</code></td><td>Agent token only. Runs the agent, applies the result through the same rule path.</td></tr>
+            <tr><td>POST</td><td><code>api:aftq-findings/add</code></td><td>Auth. Appends a note, tagged human or agent, and logs it.</td></tr>
+            <tr><td>GET</td><td><code>api:aftq-actions/list</code></td><td>Auth. The audit trail, newest first, with an optional filter.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>The frontend</h2>
+        <div class="grid2">
+          <div class="card"><h3>Actor bar</h3><p>Switch identity between a human analyst, a senior analyst, and the agent.</p></div>
+          <div class="card"><h3>Alert queue</h3><p>Open alerts with account, severity, and status.</p></div>
+          <div class="card"><h3>Alert detail</h3><p>Act on an alert and see the deciding rule that fired.</p></div>
+          <div class="card"><h3>Audit trail</h3><p>Every attempt, newest first, with actor and allowed or refused.</p></div>
+        </div>
+        <p style="margin-top:16px">
+          The frontend is React, Vite, Tailwind, and shadcn/ui. It derives its request paths and its types from the
+          query defs (the one contract in <code>frontend/src/lib/api.ts</code>), so a backend change surfaces as a type
+          error rather than a broken call.
+        </p>
+      </section>
+
+      <section id="use">
+        <h2>Use this template</h2>
+        <p>Clone it and deploy it to your own Xano instance in a minute:</p>
+        <pre><code>git clone https://github.com/xano-scratch/agent-fraud-triage-api.git
+cd agent-fraud-triage-api
+npm install
+npx xanots login
+npm run xano:deploy</code></pre>
+        <p>Or hand this to your coding agent:</p>
+        <pre><code>Clone https://github.com/xano-scratch/agent-fraud-triage-api, run
+npm install and npx xanots login, then npm run xano:deploy to get it
+live on my Xano instance. Then help me adapt the tables and the
+apply_action rules to my own domain, keeping the shared rule path and
+the audit trail.</code></pre>
+      </section>
+
+      <section>
+        <div class="note">
+          The live preview links in the build notes are ephemeral and may have expired. The durable artifact is this
+          repo. Anyone can re-deploy it with <code>npm run xano:deploy</code> for fresh links.
+        </div>
+      </section>
+
+      <footer class="wrap">
+        Backend authored in TypeScript with @xanots/sdk. A generated proof artifact for the Xano Agent Intelligence
+        Layer play, in financial services / fraud operations.
+      </footer>
+    </div>
+  </body>
+</html>

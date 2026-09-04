@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "objects": {
+    "app:actions": {
+      "guid": "9a8d0c785d240855f9928cf4921a5607",
+      "canonical": "aftq-actions",
+      "canonical_source": "code"
+    },
+    "app:alerts": {
+      "guid": "ec3241b32461bd2763439fad3e79a0e5",
+      "canonical": "aftq-alerts",
+      "canonical_source": "code"
+    },
+    "app:auth": {
+      "guid": "4fe67f5a2d319eaaca7996700f27edd8",
+      "canonical": "aftq-auth",
+      "canonical_source": "code"
+    },
+    "app:findings": {
+      "guid": "97db7b0990556e1fe67d35a9f623741d",
+      "canonical": "aftq-findings",
+      "canonical_source": "code"
+    },
+    "app:seed": {
+      "guid": "7110fabc369b25f0581044e47d499906",
+      "canonical": "aftq-seed",
+      "canonical_source": "code"
+    },
+    "app:triage": {
+      "guid": "ec5a62667193a50364dfc5d57e7f06c7",
+      "canonical": "aftq-triage",
+      "canonical_source": "code"
+    },
+    "dbo:accounts": {
+      "guid": "d79ee2e0226ccb53c0abc59b83e4ac40"
+    },
+    "dbo:agent_actions": {
+      "guid": "27c2489d4eb0510d91c02d8661bee92d"
+    },
+    "dbo:alerts": {
+      "guid": "09073685937f98da534b981601959919"
+    },
+    "dbo:analysts": {
+      "guid": "1ccc2b07768ef08c574c508be5ca3903"
+    },
+    "dbo:findings": {
+      "guid": "b89d7d0c91b73e451284b67b78829b04"
+    },
+    "function:apply_action": {
+      "guid": "b2ea6dd5ae1d500a0b1531865d9c8979"
+    },
+    "function:load_actor": {
+      "guid": "bd13daab0234567649a4ec8bf5c1fc1b"
+    },
+    "query:actions|GET|list": {
+      "guid": "c1bdfe3e7b583b12dcf8a5ddd11aa724"
+    },
+    "query:alerts|GET|get/{alert_id}": {
+      "guid": "9b58782a8a7a7229b7e77e765092151d"
+    },
+    "query:alerts|GET|queue": {
+      "guid": "6f1feb02738ff255fd389869848ae792"
+    },
+    "query:alerts|POST|act": {
+      "guid": "22b319702b969d12a24fac9a5a74fdf2"
+    },
+    "query:auth|POST|token": {
+      "guid": "589aa0a54c96188284731900ba8f2cd5"
+    },
+    "query:findings|POST|add": {
+      "guid": "36cc4455cd23848faf9749795b2cdea8"
+    },
+    "query:seed|POST|reset": {
+      "guid": "af17c06e19c07ac23c8520e2e761841a"
+    },
+    "query:triage|POST|run": {
+      "guid": "4942e3b5627209b0bd300bb964ef8039"
+    },
+    "toolset:fraud_triage_agent": {
+      "guid": "554725fd5301bca93d77082ff742fa84",
+      "canonical": "NKElMyro",
+      "canonical_source": "minted"
+    }
+  }
+}
