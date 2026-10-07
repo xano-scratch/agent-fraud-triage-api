@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Agent Fraud-Triage API</title>
+<meta name="description" content="One governed Xano API a fraud team's analysts and their AI agents both call, with one audit trail for every attempt, allowed or refused." />
+<style>
+  :root {
+    --bg: #ffffff; --fg: #15181d; --muted: #5b626e; --card: #ffffff; --border: #e6e8ec;
+    --primary: #2f5bd6; --primary-fg: #ffffff; --accent-soft: #eef2fe;
+    --danger: #c0392b; --ok: #1f7a4d; --code-bg: #f5f6f8;
+    --maxw: 56rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e1013; --fg: #eef0f3; --muted: #9aa2ae; --card: #16191e; --border: #272b31;
+      --primary: #7aa0ff; --primary-fg: #0e1013; --accent-soft: #171d2b;
+      --danger: #e07a6e; --ok: #5bbd8a; --code-bg: #14171c;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 1.25rem; }
+  header { padding: 4rem 0 2rem; }
+  .badge { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.02em;
+    color: var(--primary); background: var(--accent-soft); border: 1px solid var(--border);
+    padding: 0.25rem 0.6rem; border-radius: 999px; }
+  h1 { font-size: 2.25rem; line-height: 1.15; letter-spacing: -0.02em; margin: 1rem 0 0.5rem; }
+  .lede { font-size: 1.15rem; color: var(--muted); margin: 0 0 1rem; max-width: 44rem; }
+  .meta { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8125rem; color: var(--muted); margin: 0.5rem 0 1.5rem; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.25rem 0 0; }
+  .btn { display: inline-block; text-decoration: none; font-weight: 600; font-size: 0.9375rem;
+    padding: 0.6rem 1.1rem; border-radius: 0.6rem; border: 1px solid var(--border); }
+  .btn.primary { background: var(--primary); color: var(--primary-fg); border-color: var(--primary); }
+  .btn.ghost { background: transparent; color: var(--fg); }
+  .shots { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 2.5rem 0; }
+  @media (min-width: 48rem) { .shots { grid-template-columns: 1fr 1fr; } }
+  .shots figure { margin: 0; }
+  .shots img { width: 100%; height: auto; border: 1px solid var(--border); border-radius: 0.6rem; display: block; }
+  .shots figcaption { font-size: 0.8125rem; color: var(--muted); margin-top: 0.4rem; }
+  section { padding: 2rem 0; border-top: 1px solid var(--border); }
+  h2 { font-size: 1.4rem; letter-spacing: -0.01em; margin: 0 0 1rem; }
+  h3 { font-size: 1rem; margin: 1.25rem 0 0.4rem; }
+  ol, ul { padding-left: 1.2rem; }
+  li { margin: 0.35rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.875rem; margin: 0.5rem 0; }
+  th, td { text-align: left; padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.85em; background: var(--code-bg); padding: 0.1rem 0.35rem; border-radius: 0.35rem; }
+  pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 0.6rem; padding: 1rem; overflow-x: auto; font-size: 0.85rem; }
+  pre code { background: none; padding: 0; }
+  .yes { color: var(--ok); font-weight: 600; } .no { color: var(--danger); font-weight: 600; }
+  footer { padding: 2.5rem 0 4rem; color: var(--muted); font-size: 0.875rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="badge">Enterprise · Play 4 · Agent Intelligence Layer · Fraud ops</span>
+    <h1>Agent Fraud-Triage API</h1>
+    <p class="lede">One governed Xano API a fraud team's analysts and their AI agents both call, where the same authority rules decide every action and one audit trail records every attempt, allowed or refused.</p>
+    <p class="meta">4 domain tables · 14 domain endpoints · 6 screens · auth: @xano-sdk/auth (ejected)</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="https://github.com/xano-scratch/agent-fraud-triage-api">View on GitHub</a>
+      <a class="btn ghost" href="#use">Use this template</a>
+    </div>
+  </header>
+
+  <div class="shots">
+    <figure><img src="screenshot-light.png" alt="The triage board in light mode" /><figcaption>The triage board, light.</figcaption></figure>
+    <figure><img src="screenshot-dark.png" alt="The triage board in dark mode" /><figcaption>The triage board, dark.</figcaption></figure>
+  </div>
+
+  <section>
+    <h2>What it proves</h2>
+    <p>A fraud analyst and the analyst's AI agent hit the same permissioned, logged endpoints. Clearing and escalating an alert is in scope for both. Freezing an account is senior-only, so an analyst (and the analyst's agent) is refused at the API layer with the deciding rule, and the refusal is written to the audit trail just like an allowed action. The rule that matters lives once, in one function both the person and the agent run through.</p>
+  </section>
+
+  <section>
+    <h2>Try it in a minute</h2>
+    <ol>
+      <li>Open the app and click <strong>Continue as Avery (analyst)</strong>.</li>
+      <li>On the <strong>Triage board</strong>, drag a high-severity alert from Open to Escalated. It moves at once and a line appears in the Audit trail.</li>
+      <li>Open an account and try <strong>Freeze</strong>. You are refused, and the refused attempt is on the Audit trail with the deciding rule.</li>
+      <li>In a second window, continue as <strong>Sloan (senior)</strong> and freeze the same account. Avery's screens update live, no reload.</li>
+      <li>Open <strong>Agents</strong>, create a key, and ask your agent to triage the open queue. It drafts actions for you to approve.</li>
+    </ol>
+  </section>
+
+  <section id="use">
+    <h2>Use this template</h2>
+    <pre><code>git clone https://github.com/xano-scratch/agent-fraud-triage-api
+cd agent-fraud-triage-api
+npm install
+npm run xano:deploy    # deploys and seeds the backend on the Xano Engine, no account
+npm run dev            # opens the app, pointed at it</code></pre>
+    <p>For a cloud link that works with ChatGPT and Claude: <code>npx xanosdk login</code> once, then <code>npm run xano:deploy:ephemeral</code>.</p>
+    <h3>Point your own agent at it</h3>
+    <p>Paste this to a coding agent (Claude Code, Cursor, Codex, Windsurf):</p>
+    <pre><code>Clone https://github.com/xano-scratch/agent-fraud-triage-api, run npm install
+and npm run xano:deploy, then npm run dev. Sign in as the analyst, open Agents,
+create a read-and-write key, and connect to the MCP server. Triage the open
+fraud queue: list the open alerts, and for the high-severity ones draft a clear
+or escalate for me to approve. Everything an agent tries is written to the
+audit trail.</code></pre>
+  </section>
+
+  <section>
+    <h2>Roles</h2>
+    <table>
+      <thead><tr><th>Role</th><th>Can</th><th>Cannot</th></tr></thead>
+      <tbody>
+        <tr><td><code>analyst</code></td><td>Triage alerts, add findings, read the audit trail, recommend a freeze</td><td>Freeze or unfreeze accounts, manage the team</td></tr>
+        <tr><td><code>senior</code></td><td>Everything an analyst can, plus freeze and unfreeze accounts, edit risk notes, manage the team</td><td>Not restricted</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>API surface</h2>
+    <table>
+      <thead><tr><th>Verb and path</th><th>Who may call it</th><th>What it enforces</th></tr></thead>
+      <tbody>
+        <tr><td><code>GET api:alerts</code></td><td>alerts.triage</td><td>The queue; filters and paging, severity first</td></tr>
+        <tr><td><code>GET api:alerts/{id}</code></td><td>alerts.triage</td><td>One alert with account, findings, audit</td></tr>
+        <tr><td><code>POST api:alerts/{id}/act</code></td><td>alerts.triage</td><td>Clear or escalate an open alert; audited</td></tr>
+        <tr><td><code>POST api:alerts/{id}/findings</code></td><td>alerts.triage</td><td>Add a finding; audited</td></tr>
+        <tr><td><code>POST api:accounts/{id}/freeze</code></td><td>attempt: any triager</td><td>Requires accounts.freeze; a refusal is audited</td></tr>
+        <tr><td><code>POST api:accounts/{id}/unfreeze</code></td><td>attempt: any triager</td><td>The senior-only reverse, same rule path</td></tr>
+        <tr><td><code>GET api:audit</code></td><td>audit.read</td><td>Every attempt, allowed or refused, with the rule</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Works with your agent</h2>
+    <table>
+      <thead><tr><th>Tool</th><th>Does</th><th>Asks first?</th></tr></thead>
+      <tbody>
+        <tr><td><code>list_open_alerts</code></td><td>The open queue, most severe first (read)</td><td class="no">no</td></tr>
+        <tr><td><code>get_alert</code></td><td>One alert with account and findings (read)</td><td class="no">no</td></tr>
+        <tr><td><code>search_accounts</code></td><td>Find an account by holder or number (read)</td><td class="no">no</td></tr>
+        <tr><td><code>triage_alert</code></td><td>Drafts a clear or escalate</td><td class="yes">yes, the analyst</td></tr>
+        <tr><td><code>add_finding</code></td><td>Adds a finding, logged as an agent action</td><td class="no">no</td></tr>
+        <tr><td><code>recommend_freeze</code></td><td>Drafts a freeze recommendation</td><td class="yes">yes, a senior</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    <p>Built on Xano with the Xano SDK. MIT licensed. Seed data only, generated fresh on every deploy.</p>
+  </footer>
+</div>
+</body>
+</html>

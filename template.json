@@ -1,0 +1,20 @@
+{
+  "name": "Agent Fraud-Triage API",
+  "track": "enterprise",
+  "signature": "kanban",
+  "screens": [
+    { "name": "Overview", "path": "/" },
+    { "name": "Triage board", "path": "/board" },
+    { "name": "Alerts", "path": "/alerts" },
+    { "name": "Accounts", "path": "/accounts" },
+    { "name": "Account", "path": "/accounts/:id" },
+    { "name": "Audit trail", "path": "/audit" }
+  ],
+  "roles": ["senior", "analyst"],
+  "permissions": ["alerts.triage", "accounts.freeze", "audit.read", "team.manage"],
+  "agentTools": ["list_open_alerts", "get_alert", "search_accounts", "triage_alert", "add_finding", "recommend_freeze"],
+  "assistantTools": ["queue_summary", "find_alerts", "draft_triage"],
+  "approvals": ["apply_triage", "freeze_account"],
+  "live": ["alert", "account", "audit_event"],
+  "notifications": ["approval", "escalation", "freeze", "assigned"]
+}
