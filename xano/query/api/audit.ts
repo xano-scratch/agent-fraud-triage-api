@@ -91,6 +91,7 @@ export const updateTriageSettings = query({
     changed({ entity: "settings", id: c.int(1), verb: "updated", link: "/",
       title: "updated the urgent-severity threshold" }),
     s.db.get({ table: workspace_setting, fieldValue: c.int(1), output: ["id", "urgent_severity_threshold"], as: "row" }),
+    guard.found("row", { message: "The workspace has no settings row." }),
   ],
   response: { urgent_severity_threshold: ref("row.urgent_severity_threshold") },
   responseShape: {} as Settings,
